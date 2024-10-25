@@ -10,6 +10,8 @@ import numpy as np
 from scipy.spatial import ConvexHull
 import matplotlib.pyplot as plt
 from backend.finance import get_financial_kpis
+from datetime import date, datetime, timedelta 
+import plotly.graph_objects as go  
 
 import plotly.express as px
 
@@ -163,6 +165,66 @@ if st.sidebar.button("Submit"):
         plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours")
         st.plotly_chart(plotly_plot)
 
+         # Calculate financial KPIs based on roof area and sunlight hours
+        roof_area = geo['squaremeters']
+        avg_sunlight_hours = sunshine_data['sunshine_hours'].mean() * 365 / 8  # convert to avg annual sunlight hours
+        financial_kpis = get_financial_kpis(roof_area, avg_sunlight_hours)
+
+        # Extract KPI values
+        annual_savings = financial_kpis['annual_savings']
+        break_even_date = financial_kpis['break_even_date']
+        roi = financial_kpis['roi']
+
+        # Display Financial KPIs
+        st.subheader("Financial Summary")
+        st.write(f"Annual Savings: {annual_savings:.2f} €")
+        st.write(f"Break-Even Date: {break_even_date}")
+        st.write(f"Return on Investment: {roi:.2f} %")
+
+        # Ensure break_even_date is in datetime format for compatibility
+        break_even_date = datetime.combine(break_even_date, datetime.min.time())
+
+        # Calculate cumulative savings
+        cumulative_savings = []
+        dates = pd.date_range(start=date.today(), periods=25, freq='Y')
+        for i, dt in enumerate(dates):
+            cumulative_savings.append(annual_savings * i)
+
+        # Find the closest date in the `dates` range for the break-even date
+        closest_date = min(dates, key=lambda x: abs(x.to_pydatetime() - break_even_date))
+
+        # Create plot
+        fig = go.Figure()
+
+        # Plot cumulative savings
+        fig.add_trace(go.Scatter(
+            x=dates,
+            y=cumulative_savings,
+            mode='lines+markers',
+            name='Cumulative Savings',
+            line=dict(color='blue')
+        ))
+
+        # Add break-even point
+        fig.add_trace(go.Scatter(
+            x=[closest_date],
+            y=[annual_savings * dates.get_loc(closest_date)],  # Cumulative savings at closest date
+            mode='markers+text',
+            name='Break-Even Point',
+            text=['Break-Even'],
+            textposition='top center',
+            marker=dict(size=10, color='red', symbol='circle')
+        ))
+
+        # Update layout
+        fig.update_layout(
+            title="Cumulative Savings Over Time with Break-Even Point",
+            xaxis_title="Year",
+            yaxis_title="Cumulative Savings (€)"
+        )
+
+        # Display the cumulative savings plot
+        st.plotly_chart(fig)
     else:
         st.warning("Please enter a complete address before submitting.")
 else:

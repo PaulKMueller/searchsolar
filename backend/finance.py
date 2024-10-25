@@ -12,8 +12,8 @@ def get_financial_kpis(roof_area, sunlight_hours):
     break_even_time = installation_cost / annual_savings * 365
     roi = (((annual_savings * lifetime_panel) - installation_cost) / installation_cost ) * 100
 
-
-    break_even_date = date.today() + timedelta(days=break_even_time)
+    # Convert break_even_time to integer days
+    break_even_date = date.today() + timedelta(days=int(break_even_time))
 
     kpi['annual_savings'] = annual_savings
     kpi['break_even_date'] = break_even_date
