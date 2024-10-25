@@ -11,8 +11,12 @@ openmeteo = openmeteo_requests.Client(session=retry_session)
 
 def get_date_range(days_back):
     """Calculate the start and end dates based on the number of days back from today."""
-    end_date = datetime.now().date()
+    print(days_back)
+    end_date = datetime.now().date() - timedelta(days=1)
     start_date = end_date - timedelta(days=days_back)
+
+    print("Fetching sunshine data for the period:")
+    print(start_date, end_date)
     return start_date, end_date
 
 def fetch_sunshine_data(lat, lon, days_back):

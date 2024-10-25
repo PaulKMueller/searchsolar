@@ -1,5 +1,6 @@
 import requests
 from area import area
+import json
 
 def find_geo(plz, city, street, house_number) -> dict:
 
@@ -17,11 +18,26 @@ def find_geo(plz, city, street, house_number) -> dict:
         out skel;
     """
 
-    if plz == "76137" and city == "Karlsruhe" and street == "Morgenstraße" and house_number == "5":
-        data = {'version': 0.6, 'generator': 'Overpass API 0.7.62.1 084b4234', 'osm3s': {'timestamp_osm_base': '2024-10-25T17:43:41Z', 'copyright': 'The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.'}, 'elements': [{'type': 'way', 'id': 97892155, 'nodes': [1133026383, 1133026015, 1133026344, 4301480944, 4301480945, 4301480939, 4301480938, 1133026215, 1133025932, 1133026383], 'tags': {'addr:city': 'Karlsruhe', 'addr:country': 'DE', 'addr:housenumber': '5', 'addr:postcode': '76137', 'addr:street': 'Morgenstraße', 'building': 'apartments', 'building:levels': '4', 'roof:levels': '2', 'roof:shape': 'gabled', 'source': 'LA-KA'}}, {'type': 'node', 'id': 1133025932, 'lat': 49.0024739, 'lon': 8.4133456}, {'type': 'node', 'id': 1133026015, 'lat': 49.0026068, 'lon': 8.4132066}, {'type': 'node', 'id': 1133026215, 'lat': 49.0024745, 'lon': 8.4133731}, {'type': 'node', 'id': 1133026344, 'lat': 49.0026102, 'lon': 8.4133644}, {'type': 'node', 'id': 1133026383, 'lat': 49.0024711, 'lon': 8.4132132}, {'type': 'node', 'id': 4301480938, 'lat': 49.0025218, 'lon': 8.4133708}, {'type': 'node', 'id': 4301480939, 'lat': 49.0025222, 'lon': 8.4133907}, {'type': 'node', 'id': 4301480944, 'lat': 49.0025592, 'lon': 8.4133669}, {'type': 'node', 'id': 4301480945, 'lat': 49.0025597, 'lon': 8.4133889}]}
+    try:
+        with open('cache.json', 'r') as f:
+            cache = json.load(f)  # Use json.load to read the file contents
+    except FileNotFoundError:
+        cache = {}  # Initialize an empty cache if the file doesn't exist
+
+    # Create the key for the current query
+    cache_key = f'{plz}{city}{street}{house_number}'
+
+    if cache_key in cache:
+        # Use the cached data
+        data = cache[cache_key]
     else:
-        response = requests.get(url, params={'data': query})
-        data = response.json()
+        # Make the request and update the cache
+        data = requests.get(url, params={'data': query}).json()
+
+        # Update the cache and save it back to the file
+        cache[cache_key] = data
+        with open('cache.json', 'w') as f:
+            json.dump(cache, f)
 
     # Initialize the geo dictionary with default values
     geo = {
