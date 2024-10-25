@@ -1,5 +1,5 @@
 import streamlit as st
-from ..main import navigate_to
+from main import navigate_to
 from backend.orchestrator import orchestrate
 
 def address_form():
