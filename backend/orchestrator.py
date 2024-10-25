@@ -3,9 +3,9 @@ from backend.find_geo import find_geo
 def orchestrate(plz, city, street, house_number):
     geo = find_geo(plz, city, street, house_number)
 
-    sun_hours = sunshine(geo['latitude'], geo['longitude'])
+    sun_hours = 1
 
-    kpi = finance(geo['squaremeters'], sun_hours['location'])
+    kpi = 1
 
     return [geo, sun_hours, kpi]
 
