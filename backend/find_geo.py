@@ -1,7 +1,6 @@
 import requests
 
 def find_geo(plz, city, street, house_number):
-    # Basic Overpass API call to get building information
     url = "https://overpass-api.de/api/interpreter"
     query = f"""
     [out:json];
@@ -11,13 +10,17 @@ def find_geo(plz, city, street, house_number):
     response = requests.get(url, params={'data': query})
     data = response.json()
 
-    geo = dict()
+    # Initialize the geo dictionary with default values
+    geo = {
+        'squaremeters': 100,
+        'latitude': None,
+        'longitude': None
+    }
+
+    # Check for elements in the response
     if 'elements' in data and data['elements']:
         element = data['elements'][0]
-        geo['squaremeters'] = 100 
         geo['latitude'] = element['lat']
         geo['longitude'] = element['lon']
-    else:
-        geo['latitude'], geo['longitude'] = None, None
 
     return geo
