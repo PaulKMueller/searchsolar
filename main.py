@@ -1,3 +1,4 @@
+import math
 from backend.find_geo import find_geo
 from backend.weather import fetch_sunshine_data
 import streamlit as st
@@ -5,6 +6,7 @@ from backend.orchestrator import get_potential_profits
 import pandas as pd
 import matplotlib.pyplot as plt
 import pydeck as pdk
+import numpy as np
 
 # Sidebar for Address Input
 st.sidebar.title("Address Input")
