@@ -60,6 +60,9 @@ timeframe_map = {
 # Submit button
 if st.sidebar.button("Submit"):
     if postal_code and city and street and house_number:
+
+        st.title("Here is your result:")
+
         geo_information = find_geo(postal_code, city, street, house_number)
         sun_hours = get_annual_sunshine_hours(
             f"{street} {house_number} {postal_code} {city}"
@@ -68,7 +71,12 @@ if st.sidebar.button("Submit"):
 
         days_back = timeframe_map[timeframe]
 
-        st.title("Here is your result:")
+        st.write(f"**Your roof size 🏠:** {str(round(geo_information["squaremeters"], 2))} m²")
+        st.write(f"**Estimated Sun Hours ☀️**: {str(sun_hours)} h/year")
+
+        energy_output = get_energy_for_hours(roof_area, sun_hours)
+        st.write(f"**Energy output:** {round(energy_output/1000, 2)} MWh/year")
+
         latitude = geo_information["outline"][0][0]
         longitude = geo_information["outline"][0][1]
 
@@ -139,19 +147,6 @@ if st.sidebar.button("Submit"):
         # Show the chart in Streamlit
         st.pydeck_chart(deck)
 
-        st.subheader("Your roof size 🏠:")
-        st.write(str(round(geo_information["squaremeters"], 2)) + " m²")
-        st.subheader("Estimated Sun Hours ☀️:")
-        st.write(f"{str(sun_hours)} h/year")
-
-        energy_output = get_energy_for_hours(roof_area, sun_hours)
-        st.write(f"Energy output: {round(energy_output/1000, 2)} MWh/year")
-
-        st.write(f"Annual savings: {round(financial_kpis['annual_savings'], 2)} €")
-        st.write(f"Break even on: {financial_kpis['break_even_date']}")
-        st.write(f"Return of investment: {financial_kpis['roi']} %")
-
-
         sunshine_data = fetch_sunshine_data(latitude, longitude, days_back)
 
         # Visualization of sunshine duration over time
@@ -183,7 +178,7 @@ if st.sidebar.button("Submit"):
         st.subheader("Financial Summary")
         st.write(f"Annual Savings: {annual_savings:.2f} €")
         st.write(f"Break-Even Date: {break_even_date}")
-        st.write(f"Return on Investment: {roi:.2f} %")
+        st.write(f"Return on Investment: {round(roi, 2)} %")
 
         # Ensure break_even_date is in datetime format for compatibility
         break_even_date = datetime.combine(break_even_date, datetime.min.time())
