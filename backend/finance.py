@@ -5,13 +5,12 @@ def get_financial_kpis(roof_area, sunlight_hours):
 
     system_efficiency = 0.15
     electricity_price = 0.30
-    average_installation_cost = 10000
+    installation_cost = 70 * roof_area
     lifetime_panel = 23
-    lifetime_panel = 0.3
 
-    annual_savings = roof_area * system_efficiency * sunlight_hours * electricity_price
-    break_even_time = average_installation_cost / annual_savings * 365
-    roi = (((annual_savings * lifetime_panel) - average_installation_cost) / average_installation_cost ) * 100
+    annual_savings = roof_area * system_efficiency * sunlight_hours * electricity_price / 8
+    break_even_time = installation_cost / annual_savings * 365
+    roi = (((annual_savings * lifetime_panel) - installation_cost) / installation_cost ) * 100
 
 
     break_even_date = date.today() + timedelta(days=break_even_time)
