@@ -4,6 +4,7 @@ import streamlit as st
 from backend.orchestrator import get_potential_profits
 import pandas as pd
 import matplotlib.pyplot as plt
+import pydeck as pdk
 
 # Sidebar for Address Input
 st.sidebar.title("Address Input")
@@ -67,9 +68,29 @@ if st.sidebar.button("Submit"):
             st.write(f"Square Meters: {geo['squaremeters']}")
             st.write(f"Potential Profit (KPI): {potential_profits} €")
 
-            # Display location on the map
-            df = pd.DataFrame({'latitude': [latitude], 'longitude': [longitude]})
-            st.map(df)
+            # Display location on the map using pydeck
+            df = pd.DataFrame({
+                'latitude': [latitude],
+                'longitude': [longitude]
+            })
+            st.pydeck_chart(pdk.Deck(
+                map_style="mapbox://styles/mapbox/light-v10",
+                initial_view_state=pdk.ViewState(
+                    latitude=latitude,
+                    longitude=longitude,
+                    zoom=16,
+                    pitch=50,
+                ),
+                layers=[
+                    pdk.Layer(
+                        "ScatterplotLayer",
+                        data=df,
+                        get_position=["longitude", "latitude"],
+                        get_color=[200, 30, 0, 160],
+                        get_radius=100,
+                    ),
+                ],
+            ))
         else:
             st.warning("Geolocation data could not be found. Please check the address.")
     else:
