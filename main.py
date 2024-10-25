@@ -26,6 +26,6 @@ if st.button("Submit"):
         st.write(f"Estimated Sun Hours: {sun_hours} hours")
         st.write(f"Annual savings: {financial_kpis['annual_savings']} €")
         st.write(f"Break even after: {financial_kpis['break_even_after']} years")
-        st.write(f"Potential Profit (KPI): {financial_kpis['roi']} €")
+        st.write(f"Return of investment: {financial_kpis['roi']} %")
     else:
         st.warning("Please enter a complete address before submitting.")
