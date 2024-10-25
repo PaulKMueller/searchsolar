@@ -44,17 +44,16 @@ house_number = st.sidebar.text_input("House Number", value="5")
 
 # Sidebar for Timeframe Selection
 timeframe = st.sidebar.selectbox(
-    "Select Timeframe for Weather Data",
-    ("Past Week", "Past Month", "Past Year")
-)
+        "Select Timeframe for Weather Data",
+        ("Past Year", "Past Month", "Past Week"),
+    )
 
-# Map timeframe selection to days_back value
+    # Map timeframe selection to days_back value
 timeframe_map = {
-    "Past Week": 7,
-    "Past Month": 30,
-    "Past Year": 365
-}
-days_back = timeframe_map[timeframe]
+        "Past Week": 7,
+        "Past Month": 30,
+        "Past Year": 365
+    }
 
 # Submit button
 if st.sidebar.button("Submit"):
@@ -66,6 +65,8 @@ if st.sidebar.button("Submit"):
         sun_hours = get_annual_sunshine_hours(
             f"{street} {house_number} {postal_code} {city}"
         )
+
+        days_back = timeframe_map[timeframe]
 
         st.title("Here is your result:")
         latitude = geo_information["outline"][0][0]
@@ -144,23 +145,20 @@ if st.sidebar.button("Submit"):
 
         sunshine_data = fetch_sunshine_data(latitude, longitude, days_back)
 
-        if not sunshine_data.empty:
-            # Visualization of sunshine duration over time
-            st.title("Sunshine Duration Over Time")
+        # Visualization of sunshine duration over time
+        st.title("Sunshine Duration Over Time")
 
-            # Step 1: Convert the 'date' column to datetime (if not already in datetime)
-            sunshine_data['date'] = pd.to_datetime(sunshine_data['date'])
+        # Step 1: Convert the 'date' column to datetime (if not already in datetime)
+        sunshine_data['date'] = pd.to_datetime(sunshine_data['date'])
 
-            # Step 2: Group by the day and sum the 'sunshine_hours'
-            sunshine_data = sunshine_data.groupby(sunshine_data['date'].dt.date)['sunshine_hours'].sum().reset_index()
-            # Sample down if data for year has been selected
-            if len(sunshine_data) >= 300:
-                sunshine_data = sunshine_data.iloc[::int(len(sunshine_data) / 20)]
-            sunshine_data.columns = ['date', 'sunshine_hours']
-            plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours", title="Sunshine Duration Over Time")
-            st.plotly_chart(plotly_plot)
-        else:
-            st.warning("No sunshine data available for the selected timeframe.")
+        # Step 2: Group by the day and sum the 'sunshine_hours'
+        sunshine_data = sunshine_data.groupby(sunshine_data['date'].dt.date)['sunshine_hours'].sum().reset_index()
+        # Sample down if data for year has been selected
+        if len(sunshine_data) >= 300:
+            sunshine_data = sunshine_data.iloc[::int(len(sunshine_data) / 20)]
+        sunshine_data.columns = ['date', 'sunshine_hours']
+        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours", title="Sunshine Duration Over Time")
+        st.plotly_chart(plotly_plot)
 
     else:
         st.warning("Please enter a complete address before submitting.")
