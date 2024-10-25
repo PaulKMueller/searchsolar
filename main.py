@@ -157,7 +157,7 @@ if st.sidebar.button("Submit"):
         if len(sunshine_data) >= 300:
             sunshine_data = sunshine_data.iloc[::int(len(sunshine_data) / 20)]
         sunshine_data.columns = ['date', 'sunshine_hours']
-        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours", title="Sunshine Duration Over Time")
+        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours")
         st.plotly_chart(plotly_plot)
 
     else:
