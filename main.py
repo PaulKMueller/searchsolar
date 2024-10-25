@@ -3,13 +3,13 @@ from backend.find_geo import find_geo
 from backend.sunshine import get_annual_sunshine_hours
 from backend.weather import fetch_sunshine_data
 import streamlit as st
-from backend.orchestrator import get_potential_profits
 import pandas as pd
 import matplotlib.pyplot as plt
 import pydeck as pdk
 import numpy as np
 from scipy.spatial import ConvexHull
 import matplotlib.pyplot as plt
+from backend.finance import get_financial_kpis
 
 import plotly.express as px
 
@@ -59,9 +59,6 @@ timeframe_map = {
 if st.sidebar.button("Submit"):
     if postal_code and city and street and house_number:
         geo_information = find_geo(postal_code, city, street, house_number)
-        potential_profits = get_potential_profits(
-            postal_code, city, street, house_number
-        )
         sun_hours = get_annual_sunshine_hours(
             f"{street} {house_number} {postal_code} {city}"
         )
@@ -104,6 +101,9 @@ if st.sidebar.button("Submit"):
             pickable=True,
             auto_highlight=True
         )
+        geo = find_geo(postal_code, city, street, house_number)
+        sun_hours = get_annual_sunshine_hours(f"{street} {house_number} {postal_code} {city}") 
+        financial_kpis = get_financial_kpis(geo['squaremeters'], sun_hours)
 
         # Define a PyDeck layer for the outline (lines connecting the points)
         line_layer = pdk.Layer(
@@ -140,7 +140,10 @@ if st.sidebar.button("Submit"):
         st.write(str(round(geo_information["squaremeters"], 2)) + " m²")
         st.subheader("Estimated Sun Hours ☀️:")
         st.write(f"{str(sun_hours)} h/year")
-        st.write(f"Potential Profit (KPI): {potential_profits} €")
+
+        st.write(f"Annual savings: {financial_kpis['annual_savings']} €")
+        st.write(f"Break even on: {financial_kpis['break_even_date']}")
+        st.write(f"Return of investment: {financial_kpis['roi']} %")
 
 
         sunshine_data = fetch_sunshine_data(latitude, longitude, days_back)
