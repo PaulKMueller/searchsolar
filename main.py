@@ -39,10 +39,10 @@ def compute_outline(latitudes, longitudes):
 
 
 st.sidebar.title("Address Input")
-postal_code = st.sidebar.text_input("Postal Code", value="76137")
-city = st.sidebar.text_input("City", value="Karlsruhe")
-street = st.sidebar.text_input("Street", value="Morgenstraße")
-house_number = st.sidebar.text_input("House Number", value="5")
+postal_code = st.sidebar.text_input("Postal Code", value="50670")
+city = st.sidebar.text_input("City", value="Köln")
+street = st.sidebar.text_input("Street", value="Im Mediapark")
+house_number = st.sidebar.text_input("House Number", value="8")
 
 # Sidebar for Timeframe Selection
 timeframe = st.sidebar.selectbox(
@@ -64,9 +64,11 @@ if st.sidebar.button("Submit"):
         st.title("Here is your result:")
 
         geo_information = find_geo(postal_code, city, street, house_number)
-        sun_hours = get_annual_sunshine_hours(
-            f"{street} {house_number} {postal_code} {city}"
-        )
+        latitude = geo_information["outline"][0][0]
+        longitude = geo_information["outline"][0][1]
+
+        sun_hours = fetch_sunshine_data(latitude, longitude, 365)['sunshine_hours'].sum()
+
         roof_area = geo_information["squaremeters"]
 
         days_back = timeframe_map[timeframe]
@@ -76,9 +78,7 @@ if st.sidebar.button("Submit"):
 
         energy_output = get_energy_for_hours(roof_area, sun_hours)
         st.write(f"**Energy output:** {round(energy_output/1000, 2)} MWh/year")
-
-        latitude = geo_information["outline"][0][0]
-        longitude = geo_information["outline"][0][1]
+        
 
         # Compute the outline using the helper function
         latitudes = [x[0] for x in geo_information["outline"]]
@@ -176,9 +176,9 @@ if st.sidebar.button("Submit"):
 
         # Display Financial KPIs
         st.subheader("Financial Summary")
-        st.write(f"Annual Savings: {annual_savings:.2f} €")
-        st.write(f"Break-Even Date: {break_even_date}")
-        st.write(f"Return on Investment: {round(roi, 2)} %")
+        st.write(f"**Annual Savings:** {annual_savings:.2f} €")
+        st.write(f"**Break-Even Date:** {break_even_date}")
+        st.write(f"**Return on Investment:** {round(roi, 2)} % (calculated over a typical 23 year lifetime)")
 
         # Ensure break_even_date is in datetime format for compatibility
         break_even_date = datetime.combine(break_even_date, datetime.min.time())
