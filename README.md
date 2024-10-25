@@ -7,7 +7,7 @@ See [here](https://mamba.readthedocs.io/en/latest/installation/micromamba-instal
 
 2. Setup environment
 ```bash
-micromambe env -f environment.yml
+micromamba env -f environment.yml
 micromamba activate sus_hackathon
 ```
 
