@@ -1,4 +1,4 @@
-def finance(roof_area, sunlight_hours):
+def get_financial_kpis(roof_area, sunlight_hours):
     kpi = dict()
 
     system_efficiency = 0.15
