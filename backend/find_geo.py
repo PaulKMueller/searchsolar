@@ -37,13 +37,9 @@ def find_geo(plz, city, street, house_number) -> dict:
 
     geo['squaremeters'] = roofarea
     geo['outline'] = lat_lon_list
-    print(f"Lat lon list: {lat_lon_list}")
 
     geo['longitude'] = lat_lon_list[0][1]
 
-    print(f"Longitude: {geo['longitude']}")
-
     geo['latitude'] = lat_lon_list[0][0]
-    print(f"Latitude: {geo['latitude']}")
 
     return geo
