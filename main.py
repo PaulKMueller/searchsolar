@@ -1,51 +1,102 @@
 import math
 from backend.find_geo import find_geo
-from backend.sunshine import get_annual_sunshine_hours
+from backend.weather import fetch_sunshine_data
 import streamlit as st
 from backend.orchestrator import get_potential_profits
 import pandas as pd
+import matplotlib.pyplot as plt
 import pydeck as pdk
 import numpy as np
 
-
+# Sidebar for Address Input
 st.sidebar.title("Address Input")
-
 postal_code = st.sidebar.text_input("Postal Code", value="76137")
 city = st.sidebar.text_input("City", value="Karlsruhe")
 street = st.sidebar.text_input("Street", value="Morgenstraße")
 house_number = st.sidebar.text_input("House Number", value="5")
 
+# Sidebar for Timeframe Selection
+timeframe = st.sidebar.selectbox(
+    "Select Timeframe for Weather Data",
+    ("Past Week", "Past Month", "Past Year")
+)
+
+# Map timeframe selection to days_back value
+timeframe_map = {
+    "Past Week": 7,
+    "Past Month": 30,
+    "Past Year": 365
+}
+days_back = timeframe_map[timeframe]
+
 # Submit button
 if st.sidebar.button("Submit"):
     if postal_code and city and street and house_number:
-        geo_information = find_geo(postal_code, city, street, house_number)
-        potential_profits = get_potential_profits(
-            postal_code, city, street, house_number
-        )
-        sun_hours = get_annual_sunshine_hours(
-            f"{street} {house_number} {postal_code} {city}"
-        )
+        # Fetch geolocation data
+        geo = find_geo(postal_code, city, street, house_number)
 
-        st.title("Here is your result:")
-        st.subheader("Your roof size 🏠:")
-        st.write(str(round(geo_information["squaremeters"], 2)) + " m²")
-        st.subheader("Estimated Sun Hours ☀️:")
-        st.write(f"{str(sun_hours)} h/year")
-        st.write(f"Potential Profit (KPI): {potential_profits} €")
-        latitude = geo_information["outline"][0][0]
-        longitude = geo_information["outline"][0][1]
+        # Check if outline is available for latitude and longitude
+        if geo['outline'] and len(geo['outline']) > 0:
+            latitude = geo['outline'][0][0]
+            longitude = geo['outline'][0][1]
+            
+            # Fetch sunshine data for the selected timeframe
+            sunshine_data = fetch_sunshine_data(latitude, longitude, days_back)
 
-        latitudes = [x[0] for x in geo_information["outline"]]
-        longitudes = [x[1] for x in geo_information["outline"]]
+            # Check if data is available
+            if not sunshine_data.empty:
+                # Visualization of sunshine duration over time
+                st.title("Sunshine Duration Over Time")
+                st.write(f"Showing sunshine duration for {timeframe}")
 
-        df = pd.DataFrame({"latitude": latitudes, "longitude": longitudes})
-        st.map(df, size=1, zoom=18)
+                # Plot the data
+                plt.figure(figsize=(10, 5))
+                plt.plot(sunshine_data["date"], sunshine_data["sunshine_hours"], label="Sunshine Hours")
+                plt.xlabel("Date")
+                plt.ylabel("Sunshine Duration (hours)")
+                plt.title("Sunshine Duration Over Time")
+                plt.legend()
+                plt.grid()
+                st.pyplot(plt)
+            else:
+                st.warning("No sunshine data available for the selected timeframe.")
 
-        chart_data = pd.DataFrame(
-            np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-            columns=["lat", "lon"],
-        )
+            # Calculate potential profits based on location data
+            potential_profits = get_potential_profits(postal_code, city, street, house_number)
+
+            # Display results
+            st.title("Here is your result:")
+            st.write(f"Roof Outline: {geo['outline']}")
+            st.write(f"Square Meters: {geo['squaremeters']}")
+            st.write(f"Potential Profit (KPI): {potential_profits} €")
+
+            # Display location on the map using pydeck
+            df = pd.DataFrame({
+                'latitude': [latitude],
+                'longitude': [longitude]
+            })
+            st.pydeck_chart(pdk.Deck(
+                map_style="mapbox://styles/mapbox/light-v10",
+                initial_view_state=pdk.ViewState(
+                    latitude=latitude,
+                    longitude=longitude,
+                    zoom=16,
+                    pitch=50,
+                ),
+                layers=[
+                    pdk.Layer(
+                        "ScatterplotLayer",
+                        data=df,
+                        get_position=["longitude", "latitude"],
+                        get_color=[200, 30, 0, 160],
+                        get_radius=100,
+                    ),
+                ],
+            ))
+        else:
+            st.warning("Geolocation data could not be found. Please check the address.")
     else:
         st.warning("Please enter a complete address before submitting.")
 else:
-    st.map()
+    # Display an empty map as a default
+    st.map(pd.DataFrame({'latitude': [], 'longitude': []}))
