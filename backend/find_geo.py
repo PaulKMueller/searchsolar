@@ -1,6 +1,6 @@
 import requests
 
-def find_geo(plz, city, street, house_number):
+def find_geo(plz, city, street, house_number) -> dict:
     url = "https://overpass-api.de/api/interpreter"
     query = f"""
     [out:json];

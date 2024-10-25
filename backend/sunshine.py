@@ -1,4 +1,4 @@
-def sunshine(latitude, longitude):
+def get_sunhours(latitude, longitude):
     sun_hours = dict()
 
     sun_hours['location'] = 800

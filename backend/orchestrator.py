@@ -1,13 +1,6 @@
 from backend.find_geo import find_geo
 
-def orchestrate(plz, city, street, house_number):
-    geo = find_geo(plz, city, street, house_number)
+def get_potential_profits(plz, city, street, house_number):
+    potential_profit = 1
 
-    sun_hours = 1
-
-    kpi = 1
-
-    return [geo, sun_hours, kpi]
-
-
-    
+    return potential_profit
