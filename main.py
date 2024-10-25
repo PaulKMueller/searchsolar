@@ -9,7 +9,7 @@ import pydeck as pdk
 import numpy as np
 from scipy.spatial import ConvexHull
 import matplotlib.pyplot as plt
-from backend.finance import get_financial_kpis
+from backend.finance import get_energy_for_hours, get_financial_kpis
 from datetime import date, datetime, timedelta 
 import plotly.graph_objects as go  
 
@@ -64,6 +64,7 @@ if st.sidebar.button("Submit"):
         sun_hours = get_annual_sunshine_hours(
             f"{street} {house_number} {postal_code} {city}"
         )
+        roof_area = geo_information["squaremeters"]
 
         days_back = timeframe_map[timeframe]
 
@@ -143,7 +144,10 @@ if st.sidebar.button("Submit"):
         st.subheader("Estimated Sun Hours ☀️:")
         st.write(f"{str(sun_hours)} h/year")
 
-        st.write(f"Annual savings: {financial_kpis['annual_savings']} €")
+        energy_output = get_energy_for_hours(roof_area, sun_hours)
+        st.write(f"Energy output: {round(energy_output/1000, 2)} MWh/year")
+
+        st.write(f"Annual savings: {round(financial_kpis['annual_savings'], 2)} €")
         st.write(f"Break even on: {financial_kpis['break_even_date']}")
         st.write(f"Return of investment: {financial_kpis['roi']} %")
 

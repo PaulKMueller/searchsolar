@@ -20,3 +20,13 @@ def get_financial_kpis(roof_area, sunlight_hours):
     kpi['roi'] = roi
 
     return kpi
+
+def get_energy_for_hours(roof_area, sunlight_hours):
+    print(f"Roof area: {roof_area}")
+    print(f"Sunlight hours: {sunlight_hours}")
+    
+    energy_per_square_meter = 0.16 # in kWp
+
+    energy = roof_area * sunlight_hours * energy_per_square_meter
+
+    return energy
