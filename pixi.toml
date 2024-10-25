@@ -11,3 +11,4 @@ streamlit = "streamlit run main.py"
 
 [dependencies]
 streamlit = ">=1.39.0,<2"
+geopy = ">=2.4.1,<3"
