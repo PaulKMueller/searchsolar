@@ -4,7 +4,7 @@ def get_financial_kpis(roof_area, sunlight_hours):
     kpi = dict()
 
     system_efficiency = 0.15
-    electricity_price = 0.30
+    electricity_price = 0.15
     installation_cost = 70 * roof_area
     lifetime_panel = 23
 

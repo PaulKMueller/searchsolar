@@ -75,8 +75,8 @@ if st.sidebar.button("Submit"):
 
         days_back = timeframe_map[timeframe]
 
-        st.write(f"**Your roof size 🏠:** {str(round(geo_information["squaremeters"], 2))} m²")
-        st.write(f"**Estimated Sun Hours ☀️**: {str(sun_hours)} h/year")
+        st.write(f"**Your roof size:** {str(round(geo_information["squaremeters"], 2))} m²")
+        st.write(f"**Estimated Sun Hours:** {str(sun_hours)} h/year")
 
         energy_output = get_energy_for_hours(roof_area, sun_hours)
         st.write(f"**Energy output:** {round(energy_output/1000, 2)} MWh/year")
@@ -110,7 +110,7 @@ if st.sidebar.button("Submit"):
             data=df_points,
             get_position='[longitude, latitude]',
             get_radius=1,          # Set radius of points
-            get_fill_color=[0, 0, 255],  # Red color for points
+            get_fill_color=[249, 215, 29],
             pickable=True,
             auto_highlight=True
         )
@@ -124,7 +124,7 @@ if st.sidebar.button("Submit"):
             data=lines_data,
             get_source_position="start",
             get_target_position="end",
-            get_color=[0, 0, 255],  # Blue color for lines
+            get_color=[249, 215, 29],  # Blue color for lines
             get_width=2,
             pickable=True
         )
@@ -163,7 +163,7 @@ if st.sidebar.button("Submit"):
         if len(sunshine_data) >= 300:
             sunshine_data = sunshine_data.iloc[::int(len(sunshine_data) / 20)]
         sunshine_data.columns = ['date', 'sunshine_hours']
-        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours")
+        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours", color_discrete_sequence=["#F9D71D"] )
         st.plotly_chart(plotly_plot)
 
          # Calculate financial KPIs based on roof area and sunlight hours
@@ -203,7 +203,7 @@ if st.sidebar.button("Submit"):
             y=cumulative_savings,
             mode='lines+markers',
             name='Cumulative Savings',
-            line=dict(color='blue')
+            line=dict(color='#F9D71D')
         ))
 
         # Add break-even point
@@ -214,7 +214,7 @@ if st.sidebar.button("Submit"):
             name='Break-Even Point',
             text=['Break-Even'],
             textposition='top center',
-            marker=dict(size=10, color='red', symbol='circle')
+            marker=dict(size=10, color='#F9D71D', symbol='circle')
         ))
 
         # Update layout
