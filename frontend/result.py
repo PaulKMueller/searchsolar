@@ -1,9 +1,18 @@
 import streamlit as st
 
 def result():
-    st.title("Hier ist das Ergebnis:")
-    st.write("Gib deine Adresse an und wir sagen dir, wie viel Geld zu mit einer Solaranlage verdienst!")
+    st.title("Here is your result")
+    st.write("Enter your address, and we’ll tell you how much you could earn with solar panels!")
 
-    st.form("Adresse:")
-    
+    # Check if we have results from session state
+    if 'result_data' in st.session_state:
+        geo, sun_hours, kpi = st.session_state['result_data']
+
+        st.write(f"Location: {geo['latitude']}, {geo['longitude']}")
+        st.write(f"Square Meters: {geo['squaremeters']}")
+        st.write(f"Estimated Sun Hours: {sun_hours} hours")
+        st.write(f"Potential Profit (KPI): {kpi} €")
+    else:
+        st.warning("No results available. Please enter your address on the previous page.")
+
 
