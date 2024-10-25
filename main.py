@@ -21,7 +21,7 @@ if st.button("Submit"):
         st.title("Here is your result")
         st.write("Enter your address, and we’ll tell you how much you could earn with solar panels!")
 
-        st.write(f"Location: {geo['latitude']}, {geo['longitude']}")
+        st.write(f"Roof Outline: {geo['outline']}")
         st.write(f"Square Meters: {geo['squaremeters']}")
         st.write(f"Estimated Sun Hours: {sun_hours} hours")
         st.write(f"Potential Profit (KPI): {potential_profits} €")

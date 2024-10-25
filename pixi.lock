@@ -8,6 +8,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-2_gnu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/altair-5.4.1-pyhd8ed1ab_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/area-1.1.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/asttokens-2.4.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/attrs-24.2.0-pyh71513ae_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/aws-c-auth-0.7.31-hcdce11a_5.conda
@@ -199,6 +200,7 @@ environments:
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/noarch/altair-5.4.1-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/appnope-0.1.4-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/area-1.1.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/asttokens-2.4.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/attrs-24.2.0-pyh71513ae_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/aws-c-auth-0.7.31-hee1f4ab_5.conda
@@ -380,6 +382,7 @@ environments:
       win-64:
       - conda: https://conda.anaconda.org/conda-forge/win-64/_openmp_mutex-4.5-2_gnu.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/altair-5.4.1-pyhd8ed1ab_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/area-1.1.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/asttokens-2.4.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/attrs-24.2.0-pyh71513ae_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/aws-c-auth-0.7.31-h459cf4e_5.conda
@@ -636,6 +639,21 @@ packages:
   license_family: BSD
   size: 10241
   timestamp: 1707233195627
+- kind: conda
+  name: area
+  version: 1.1.1
+  build: pyhd8ed1ab_0
+  subdir: noarch
+  noarch: python
+  url: https://conda.anaconda.org/conda-forge/noarch/area-1.1.1-pyhd8ed1ab_0.conda
+  sha256: adeec81317980e65e1c40792edf05482c9cf9abf30979e358fe7d4359bb1d27a
+  md5: 43dbd4a0962c545777f2191f56b513c2
+  depends:
+  - python >=3.6
+  license: BSD-2-Clause
+  license_family: BSD
+  size: 9686
+  timestamp: 1692383569910
 - kind: conda
   name: asttokens
   version: 2.4.1
