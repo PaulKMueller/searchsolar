@@ -167,7 +167,7 @@ if st.sidebar.button("Submit"):
 
          # Calculate financial KPIs based on roof area and sunlight hours
         roof_area = geo['squaremeters']
-        avg_sunlight_hours = sunshine_data['sunshine_hours'].mean() * 365 / 8  # convert to avg annual sunlight hours
+        avg_sunlight_hours = sunshine_data['sunshine_hours'].mean() * 365  # convert to avg annual sunlight hours
         financial_kpis = get_financial_kpis(roof_area, avg_sunlight_hours)
 
         # Extract KPI values
