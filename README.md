@@ -2,18 +2,17 @@
 
 ## How to run
 
-1. Install micromamba
-See [here](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html) for details
+1. Install pixi
+https://pixi.sh/dev/ for details
 
 2. Setup environment
 ```bash
-micromamba env create -f environment.yml
-micromamba activate sus_hackathon
+pixi install
 ```
 
 3. Run streamlit app
 ```bash
-streamlit run main.py
+pixi run streamlit
 ```
 
 Then go to http://localhost:8501 to see the app.
