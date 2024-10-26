@@ -63,8 +63,6 @@ timeframe_map = {
 if st.sidebar.button("Submit"):
     if postal_code and city and street and house_number:
 
-        st.title("Here is your result:")
-
         geo_information = find_geo(postal_code, city, street, house_number)
         latitude = geo_information["outline"][0][0]
         longitude = geo_information["outline"][0][1]
@@ -74,12 +72,6 @@ if st.sidebar.button("Submit"):
         roof_area = geo_information["squaremeters"]
 
         days_back = timeframe_map[timeframe]
-
-        st.write(f"**Your roof size:** {str(round(geo_information["squaremeters"], 2))} m²")
-        st.write(f"**Estimated Sun Hours:** {str(sun_hours)} h/year")
-
-        energy_output = get_energy_for_hours(roof_area, sun_hours)
-        st.write(f"**Energy output:** {round(energy_output/1000, 2)} MWh/year")
         
 
         # Compute the outline using the helper function
@@ -149,10 +141,17 @@ if st.sidebar.button("Submit"):
         # Show the chart in Streamlit
         st.pydeck_chart(deck)
 
+        st.header("Location details:")
+        st.write(f"**Your roof size:** {str(round(geo_information["squaremeters"], 2))} m²")
+        st.write(f"**Estimated Sun Hours:** {str(sun_hours)} h/year")
+
+        energy_output = get_energy_for_hours(roof_area, sun_hours)
+        st.write(f"**Energy output:** {round(energy_output/1000, 2)} MWh/year")
+
         sunshine_data = fetch_sunshine_data(latitude, longitude, days_back)
 
         # Visualization of sunshine duration over time
-        st.title("Sunshine Duration Over Time")
+        st.header("Sunshine Hours:")
 
         # Step 1: Convert the 'date' column to datetime (if not already in datetime)
         sunshine_data['date'] = pd.to_datetime(sunshine_data['date'])
@@ -177,7 +176,7 @@ if st.sidebar.button("Submit"):
         roi = financial_kpis['roi']
 
         # Display Financial KPIs
-        st.subheader("Financial Summary")
+        st.header("Financial Summary")
         st.write(f"**Annual Savings:** {annual_savings:.2f} €")
         st.write(f"**Break-Even Date:** {break_even_date}")
         st.write(f"**Return on Investment:** {round(roi, 2)} % (calculated over a typical 23 year lifetime)")
@@ -217,9 +216,12 @@ if st.sidebar.button("Submit"):
             marker=dict(size=10, color='#F9D71D', symbol='circle')
         ))
 
-        # Update layout
+        # Update layout to add the title
         fig.update_layout(
-            title="Cumulative Savings Over Time with Break-Even Point",
+            title=dict(
+                text="Cumulative Savings Over Time with Break-Even Point",
+                font=dict(size=24),  # Adjust title font size
+            ),
             xaxis_title="Year",
             yaxis_title="Cumulative Savings (€)"
         )
@@ -230,4 +232,4 @@ if st.sidebar.button("Submit"):
         st.warning("Please enter a complete address before submitting.")
 else:
     # Display an empty map as a default
-    st.map(pd.DataFrame({'latitude': [], 'longitude': []}))
+    st.map(pd.DataFrame({'latitude': [51.163375], 'longitude': [10.447683]}), zoom=4)
