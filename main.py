@@ -234,6 +234,36 @@ if st.sidebar.button("Submit"):
 
         # Display the cumulative savings plot
         st.plotly_chart(fig)
+
+        coverage_df = pd.read_csv("city_mapping_final.csv")
+        # Get city name from input and standardize it to lowercase
+        city_input = city.lower()
+        # Try to find the city in the dataframe
+        coverage_row = coverage_df[coverage_df['stadt'].str.lower() == city_input]
+        if not coverage_row.empty:
+            coverage_percentage = coverage_row.iloc[0]['anteil']
+            # Create a gauge chart with plotly
+            fig = go.Figure(go.Indicator(
+                mode = "gauge+number",
+                value = coverage_percentage,
+                domain = {'x': [0, 1], 'y': [0, 1]},
+                title = {'text': "Renewable Energy Coverage"},
+                gauge = {
+                    'axis': {'range': [0, 100]},
+                    'bar': {'color': 'darkblue'},
+                    'steps': [
+                        {'range': [0, 25], 'color': 'red'},
+                        {'range': [25, 50], 'color': 'orange'},
+                        {'range': [50, 75], 'color': 'yellow'},
+                        {'range': [75, 100], 'color': 'green'}
+                    ],
+                }
+            ))
+            st.header("Renewables Coverage Score")
+            st.plotly_chart(fig)
+        else:
+            st.header("Renewables Coverage Score")
+            st.write("Data not available for your city.")
     else:
         st.warning("Please enter a complete address before submitting.")
 else:
