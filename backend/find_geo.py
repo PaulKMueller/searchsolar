@@ -14,15 +14,6 @@ def find_geo(plz, city, street, house_number) -> dict:
     outline3 = data['results'][0]['buildings'][0]['building_outlines'][0]['display_polygon']['coordinates'][0]
     outline2 = [[coord[1], coord[0]] for coord in outline3]
 
-    try:
-        with open('cache.json', 'r') as f:
-            cache = json.load(f)  # Use json.load to read the file contents
-    except FileNotFoundError:
-        cache = {}  # Initialize an empty cache if the file doesn't exist
-
-    # Create the key for the current query
-    cache_key = f'{plz}{city}{street}{house_number}'
-
     # Initialize the geo dictionary with default values
     geo = {
         'squaremeters': 0,
