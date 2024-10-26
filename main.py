@@ -250,7 +250,7 @@ if st.sidebar.button("Submit"):
                 title = {'text': "Renewable Energy Coverage"},
                 gauge = {
                     'axis': {'range': [0, 100]},
-                    'bar': {'color': 'darkblue'},
+                    'bar': {'color': 'grey'},
                     'steps': [
                         {'range': [0, 25], 'color': 'red'},
                         {'range': [25, 50], 'color': 'orange'},
