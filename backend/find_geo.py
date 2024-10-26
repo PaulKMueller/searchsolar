@@ -5,18 +5,11 @@ import json
 def find_geo(plz, city, street, house_number) -> dict:
 
 
-    url = "https://overpass-api.de/api/interpreter"
-    query = f"""
-        [out:json];
-        (
-        node["building"]["addr:postcode"="{plz}"]["addr:street"="{street}"]["addr:housenumber"="{house_number}"]["addr:city"="{city}"];
-        way["building"]["addr:postcode"="{plz}"]["addr:street"="{street}"]["addr:housenumber"="{house_number}"]["addr:city"="{city}"];
-        relation["building"]["addr:postcode"="{plz}"]["addr:street"="{street}"]["addr:housenumber"="{house_number}"]["addr:city"="{city}"];
-        );
-        out body;
-        >>;
-        out skel;
-    """
+    url = f"""https://maps.googleapis.com/maps/api/geocode/json?address={plz}+{city}+{street}+{house_number}&extra_computations=BUILDING_AND_ENTRANCES&key=AIzaSyAJV8oKU2pWmPcebjSiUERaxEOlHeDMzaI"""
+
+    data = requests.get(url).json()
+    outline3 = data['results'][0]['buildings'][0]['building_outlines'][0]['display_polygon']['coordinates'][0]
+    outline2 = [[coord[1], coord[0]] for coord in outline3]
 
     try:
         with open('cache.json', 'r') as f:
@@ -27,35 +20,20 @@ def find_geo(plz, city, street, house_number) -> dict:
     # Create the key for the current query
     cache_key = f'{plz}{city}{street}{house_number}'
 
-    if cache_key in cache:
-        # Use the cached data
-        data = cache[cache_key]
-    else:
-        # Make the request and update the cache
-        data = requests.get(url, params={'data': query}).json()
-
-        # Update the cache and save it back to the file
-        cache[cache_key] = data
-        with open('cache.json', 'w') as f:
-            json.dump(cache, f)
-
     # Initialize the geo dictionary with default values
     geo = {
         'squaremeters': 0,
         'outline': None,
     }
 
-    outline = data['elements'][1:]
-    lat_lon_list = [[item['lat'], item['lon']] for item in outline]
-
-    obj = {'type':'Polygon','coordinates':[lat_lon_list]}
+    obj = {'type':'Polygon','coordinates':[outline2]}
     roofarea = area(obj)
 
     geo['squaremeters'] = roofarea
-    geo['outline'] = lat_lon_list
+    geo['outline'] = outline2
 
-    geo['longitude'] = lat_lon_list[0][1]
+    geo['longitude'] = outline2[0][1]
 
-    geo['latitude'] = lat_lon_list[0][0]
+    geo['latitude'] = outline2[0][0]
 
     return geo
