@@ -1,6 +1,7 @@
 import requests
 from area import area
 import json
+import os
 
 def find_geo(plz, city, street, house_number) -> dict:
 
@@ -8,7 +9,10 @@ def find_geo(plz, city, street, house_number) -> dict:
 
     data = None
 
-    url = f"""https://maps.googleapis.com/maps/api/geocode/json?address={plz}+{city}+{street}+{house_number}&extra_computations=BUILDING_AND_ENTRANCES&key=AIzaSyAJV8oKU2pWmPcebjSiUERaxEOlHeDMzaI"""
+    # Get key from environment
+    key = os.getenv('GOOGLE_MAPS_API_KEY')
+
+    url = f"""https://maps.googleapis.com/maps/api/geocode/json?address={plz}+{city}+{street}+{house_number}&extra_computations=BUILDING_AND_ENTRANCES&key={key}"""
 
     data = requests.get(url).json()
     outline3 = data['results'][0]['buildings'][0]['building_outlines'][0]['display_polygon']['coordinates'][0]
