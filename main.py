@@ -179,7 +179,7 @@ if st.sidebar.button("Submit"):
         st.header("Financial Summary")
         st.write(f"**Annual Savings:** {annual_savings:.2f} €")
         st.write(f"**Break-Even Date:** {break_even_date}")
-        st.write(f"**Return on Investment:** {round(roi, 2)} % (calculated over a typical 23 year lifetime)")
+        st.write(f"**Return on Investment:** {roi:.2f} % (calculated over a typical 23 year lifetime)")
 
         # Ensure break_even_date is in datetime format for compatibility
         break_even_date = datetime.combine(break_even_date, datetime.min.time())
