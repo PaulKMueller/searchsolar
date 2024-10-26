@@ -1,1 +1,1092 @@
-{"50670K\u00f6lnIm Mediapark8": {"version": 0.6, "generator": "Overpass API 0.7.62.1 084b4234", "osm3s": {"timestamp_osm_base": "2024-10-25T22:30:08Z", "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."}, "elements": [{"type": "way", "id": 23113718, "nodes": [2583598144, 2583598147, 2583598145, 2908696569, 2583598110, 2583598115, 2583598119, 2583598118, 2583598121, 2583598122, 2583598123, 2583598124, 2583598125, 2583598126, 2583598127, 2583598128, 2583598129, 2583598139, 2583598140, 2583598141, 2583598144], "tags": {"addr:city": "K\u00f6ln", "addr:country": "DE", "addr:housenumber": "8", "addr:postcode": "50670", "addr:street": "Im Mediapark", "building": "office", "building:use": "residential;commercial", "height": "149", "name": "K\u00f6lnturm", "owner": "IREF Art-Invest KoelnTurm S.\u00e1.r.l.", "start_date": "2001", "use": "office", "website": "https://www.koelnturm.de/", "wikidata": "Q555142", "wikipedia": "de:K\u00f6lnturm"}}, {"type": "node", "id": 2583598110, "lat": 50.9478923, "lon": 6.9428301}, {"type": "node", "id": 2583598115, "lat": 50.9479114, "lon": 6.9430579}, {"type": "node", "id": 2583598118, "lat": 50.9479329, "lon": 6.9432401}, {"type": "node", "id": 2583598119, "lat": 50.947944, "lon": 6.9430514}, {"type": "node", "id": 2583598121, "lat": 50.9479597, "lon": 6.9432445}, {"type": "node", "id": 2583598122, "lat": 50.9479608, "lon": 6.9432525}, {"type": "node", "id": 2583598123, "lat": 50.9479633, "lon": 6.9432596}, {"type": "node", "id": 2583598124, "lat": 50.9479673, "lon": 6.9432647}, {"type": "node", "id": 2583598125, "lat": 50.9479721, "lon": 6.943267}, {"type": "node", "id": 2583598126, "lat": 50.9479772, "lon": 6.9432663}, {"type": "node", "id": 2583598127, "lat": 50.9479818, "lon": 6.9432626}, {"type": "node", "id": 2583598128, "lat": 50.9479851, "lon": 6.9432565}, {"type": "node", "id": 2583598129, "lat": 50.947987, "lon": 6.9432489}, {"type": "node", "id": 2583598139, "lat": 50.9481348, "lon": 6.9432727}, {"type": "node", "id": 2583598140, "lat": 50.9481353, "lon": 6.9432648}, {"type": "node", "id": 2583598141, "lat": 50.9481904, "lon": 6.9432732}, {"type": "node", "id": 2583598144, "lat": 50.9482081, "lon": 6.9429956}, {"type": "node", "id": 2583598145, "lat": 50.9482168, "lon": 6.9427607}, {"type": "node", "id": 2583598147, "lat": 50.9482363, "lon": 6.942989}, {"type": "node", "id": 2908696569, "lat": 50.9479691, "lon": 6.9428137}]}, "76137KarlsruheMorgenstra\u00dfe5": {"version": 0.6, "generator": "Overpass API 0.7.62.1 084b4234", "osm3s": {"timestamp_osm_base": "2024-10-25T22:31:14Z", "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."}, "elements": [{"type": "way", "id": 97892155, "nodes": [1133026383, 1133026015, 1133026344, 4301480944, 4301480945, 4301480939, 4301480938, 1133026215, 1133025932, 1133026383], "tags": {"addr:city": "Karlsruhe", "addr:country": "DE", "addr:housenumber": "5", "addr:postcode": "76137", "addr:street": "Morgenstra\u00dfe", "building": "apartments", "building:levels": "4", "roof:levels": "2", "roof:shape": "gabled", "source": "LA-KA"}}, {"type": "node", "id": 1133025932, "lat": 49.0024739, "lon": 8.4133456}, {"type": "node", "id": 1133026015, "lat": 49.0026068, "lon": 8.4132066}, {"type": "node", "id": 1133026215, "lat": 49.0024745, "lon": 8.4133731}, {"type": "node", "id": 1133026344, "lat": 49.0026102, "lon": 8.4133644}, {"type": "node", "id": 1133026383, "lat": 49.0024711, "lon": 8.4132132}, {"type": "node", "id": 4301480938, "lat": 49.0025218, "lon": 8.4133708}, {"type": "node", "id": 4301480939, "lat": 49.0025222, "lon": 8.4133907}, {"type": "node", "id": 4301480944, "lat": 49.0025592, "lon": 8.4133669}, {"type": "node", "id": 4301480945, "lat": 49.0025597, "lon": 8.4133889}]}}
+{
+    "50670K\u00f6lnIm Mediapark8": {
+        "version": 0.6,
+        "generator": "Overpass API 0.7.62.1 084b4234",
+        "osm3s": {
+            "timestamp_osm_base": "2024-10-26T08:41:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+        },
+        "elements": [
+            {
+                "type": "way",
+                "id": 23113718,
+                "nodes": [
+                    2583598144,
+                    2583598147,
+                    2583598145,
+                    2908696569,
+                    2583598110,
+                    2583598115,
+                    2583598119,
+                    2583598118,
+                    2583598121,
+                    2583598122,
+                    2583598123,
+                    2583598124,
+                    2583598125,
+                    2583598126,
+                    2583598127,
+                    2583598128,
+                    2583598129,
+                    2583598139,
+                    2583598140,
+                    2583598141,
+                    2583598144
+                ],
+                "tags": {
+                    "addr:city": "K\u00f6ln",
+                    "addr:country": "DE",
+                    "addr:housenumber": "8",
+                    "addr:postcode": "50670",
+                    "addr:street": "Im Mediapark",
+                    "building": "office",
+                    "building:use": "residential;commercial",
+                    "height": "149",
+                    "name": "K\u00f6lnturm",
+                    "owner": "IREF Art-Invest KoelnTurm S.\u00e1.r.l.",
+                    "start_date": "2001",
+                    "use": "office",
+                    "website": "https://www.koelnturm.de/",
+                    "wikidata": "Q555142",
+                    "wikipedia": "de:K\u00f6lnturm"
+                }
+            },
+            {
+                "type": "node",
+                "id": 2583598110,
+                "lat": 50.9478923,
+                "lon": 6.9428301
+            },
+            {
+                "type": "node",
+                "id": 2583598115,
+                "lat": 50.9479114,
+                "lon": 6.9430579
+            },
+            {
+                "type": "node",
+                "id": 2583598118,
+                "lat": 50.9479329,
+                "lon": 6.9432401
+            },
+            {
+                "type": "node",
+                "id": 2583598119,
+                "lat": 50.947944,
+                "lon": 6.9430514
+            },
+            {
+                "type": "node",
+                "id": 2583598121,
+                "lat": 50.9479597,
+                "lon": 6.9432445
+            },
+            {
+                "type": "node",
+                "id": 2583598122,
+                "lat": 50.9479608,
+                "lon": 6.9432525
+            },
+            {
+                "type": "node",
+                "id": 2583598123,
+                "lat": 50.9479633,
+                "lon": 6.9432596
+            },
+            {
+                "type": "node",
+                "id": 2583598124,
+                "lat": 50.9479673,
+                "lon": 6.9432647
+            },
+            {
+                "type": "node",
+                "id": 2583598125,
+                "lat": 50.9479721,
+                "lon": 6.943267
+            },
+            {
+                "type": "node",
+                "id": 2583598126,
+                "lat": 50.9479772,
+                "lon": 6.9432663
+            },
+            {
+                "type": "node",
+                "id": 2583598127,
+                "lat": 50.9479818,
+                "lon": 6.9432626
+            },
+            {
+                "type": "node",
+                "id": 2583598128,
+                "lat": 50.9479851,
+                "lon": 6.9432565
+            },
+            {
+                "type": "node",
+                "id": 2583598129,
+                "lat": 50.947987,
+                "lon": 6.9432489
+            },
+            {
+                "type": "node",
+                "id": 2583598139,
+                "lat": 50.9481348,
+                "lon": 6.9432727
+            },
+            {
+                "type": "node",
+                "id": 2583598140,
+                "lat": 50.9481353,
+                "lon": 6.9432648
+            },
+            {
+                "type": "node",
+                "id": 2583598141,
+                "lat": 50.9481904,
+                "lon": 6.9432732
+            },
+            {
+                "type": "node",
+                "id": 2583598144,
+                "lat": 50.9482081,
+                "lon": 6.9429956
+            },
+            {
+                "type": "node",
+                "id": 2583598145,
+                "lat": 50.9482168,
+                "lon": 6.9427607
+            },
+            {
+                "type": "node",
+                "id": 2583598147,
+                "lat": 50.9482363,
+                "lon": 6.942989
+            },
+            {
+                "type": "node",
+                "id": 2908696569,
+                "lat": 50.9479691,
+                "lon": 6.9428137
+            }
+        ]
+    },
+    "11011BerlinPlatz der Republik1": {
+        "version": 0.6,
+        "generator": "Overpass API 0.7.62.1 084b4234",
+        "osm3s": {
+            "timestamp_osm_base": "2024-10-26T08:41:57Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+        },
+        "elements": [
+            {
+                "type": "relation",
+                "id": 2201742,
+                "members": [
+                    {
+                        "type": "way",
+                        "ref": 37449517,
+                        "role": "outer"
+                    },
+                    {
+                        "type": "way",
+                        "ref": 37449516,
+                        "role": "inner"
+                    },
+                    {
+                        "type": "way",
+                        "ref": 37449515,
+                        "role": "inner"
+                    }
+                ],
+                "tags": {
+                    "addr:city": "Berlin",
+                    "addr:country": "DE",
+                    "addr:housename": "Reichstagsgeb\u00e4ude",
+                    "addr:housenumber": "1",
+                    "addr:postcode": "10557",
+                    "addr:street": "Platz der Republik",
+                    "addr:suburb": "Tiergarten",
+                    "air_conditioning": "yes",
+                    "architect": "Paul Wallot",
+                    "architect:wikidata": "Q77357",
+                    "architect:wikipedia": "de:Paul Wallot",
+                    "blind:description:de": "Im Reichstagsgeb\u00e4ude gibt es F\u00fchrungen f\u00fcr Blinde und Sehgesch\u00e4digte, siehe http://www.absv.de/freizeit/reichstag.htm .",
+                    "building": "government",
+                    "building:colour": "#cfccb9",
+                    "building:material": "stone",
+                    "construction_date": "1884-06-09..1894",
+                    "contact:tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g187323-d190517-Reviews-Reichstag_Building-Berlin.html",
+                    "description": "Sitz des Deutschen Bundestages",
+                    "fee": "no",
+                    "height": "48",
+                    "heritage": "4",
+                    "heritage:operator": "lda",
+                    "image": "http://upload.wikimedia.org/wikipedia/commons/3/36/Berlin_reichstag_west_panorama.jpg",
+                    "image:0": "https://photos.app.goo.gl/vHmEzoFEf6Xj13hEA",
+                    "internet_access": "wlan",
+                    "name": "Reichstagsgeb\u00e4ude",
+                    "name:ar": "\u0645\u0628\u0646\u0649 \u0627\u0644\u0631\u0627\u064a\u0634\u062a\u0627\u063a",
+                    "name:be": "\u0420\u044d\u0439\u0445\u0441\u0442\u0430\u0433",
+                    "name:cs": "Budova \u0158\u00ed\u0161sk\u00e9ho sn\u011bmu",
+                    "name:da": "Rigsdagsbygningen",
+                    "name:de": "Reichstagsgeb\u00e4ude",
+                    "name:el": "\u03a1\u03ac\u03b9\u03c7\u03c3\u03c4\u03b1\u03b3\u03ba",
+                    "name:en": "Reichstag Building",
+                    "name:es": "Edificio del Reichstag",
+                    "name:fa": "\u0633\u0627\u062e\u062a\u0645\u0627\u0646 \u0631\u0627\u06cc\u0634\u0633\u062a\u0627\u06af",
+                    "name:fi": "Valtiop\u00e4iv\u00e4talo",
+                    "name:fr": "Palais du Reichstag",
+                    "name:he": "\u05e8\u05d9\u05d9\u05db\u05e1\u05d8\u05d0\u05d2",
+                    "name:is": "\u00deingh\u00fasi\u00f0",
+                    "name:it": "Palazzo del Reichstag",
+                    "name:ja": "\u56fd\u4f1a\u8b70\u4e8b\u5802",
+                    "name:ko": "\uad6d\uac00\uc758\ud68c(\uc81c\uad6d\uc758\ud68c) \uc758\uc0ac\ub2f9",
+                    "name:lt": "Reichstagas",
+                    "name:nl": "Rijksdaggebouw",
+                    "name:no": "Riksdagsbygningen",
+                    "name:pl": "Gmach parlamentu Rzeszy",
+                    "name:pt": "Pal\u00e1cio do Reichstag",
+                    "name:ro": "Cl\u0103direa Parlamentului German",
+                    "name:ru": "\u0420\u0435\u0439\u0445\u0441\u0442\u0430\u0433",
+                    "name:sk": "Budova R\u00ed\u0161skeho snemu",
+                    "name:sv": "Riksdagshuset",
+                    "name:uk": "\u0420\u0435\u0439\u0445\u0441\u0442\u0430\u0433",
+                    "name:zh": "\u5fb7\u56fd\u56fd\u4f1a\u5927\u53a6",
+                    "opening_hours": "Mo-Sa 08:00-00:00; Su 08:00-24:00",
+                    "operator": "Deutscher Bundestag - Verfassungsorgan der Bundesrepublik Deutschland",
+                    "ref:vatin": "DE 122119035",
+                    "reservation": "required",
+                    "roof:colour": "#cfccb9",
+                    "roof:shape": "flat",
+                    "short_name": "RTG",
+                    "smoking": "isolated",
+                    "start_date": "1894",
+                    "toilets": "yes",
+                    "toilets:wheelchair": "yes",
+                    "tourism": "attraction",
+                    "type": "multipolygon",
+                    "wheelchair": "yes",
+                    "wikidata": "Q151897",
+                    "wikimedia_commons": "Category:Reichstag_(building)",
+                    "wikipedia": "de:Reichstagsgeb\u00e4ude"
+                }
+            },
+            {
+                "type": "node",
+                "id": 31203140,
+                "lat": 52.5184547,
+                "lon": 13.3754336
+            },
+            {
+                "type": "node",
+                "id": 31237858,
+                "lat": 52.5187156,
+                "lon": 13.3768681
+            },
+            {
+                "type": "node",
+                "id": 31237890,
+                "lat": 52.5184614,
+                "lon": 13.3768491
+            },
+            {
+                "type": "node",
+                "id": 100836987,
+                "lat": 52.5191891,
+                "lon": 13.3757229
+            },
+            {
+                "type": "node",
+                "id": 100836988,
+                "lat": 52.5191658,
+                "lon": 13.375417
+            },
+            {
+                "type": "node",
+                "id": 100837201,
+                "lat": 52.5181356,
+                "lon": 13.3767868
+            },
+            {
+                "type": "node",
+                "id": 100837203,
+                "lat": 52.5180242,
+                "lon": 13.3767483
+            },
+            {
+                "type": "node",
+                "id": 100837204,
+                "lat": 52.5179768,
+                "lon": 13.3765234
+            },
+            {
+                "type": "node",
+                "id": 100839358,
+                "lat": 52.5190249,
+                "lon": 13.376741
+            },
+            {
+                "type": "node",
+                "id": 100839359,
+                "lat": 52.51916,
+                "lon": 13.3767997
+            },
+            {
+                "type": "node",
+                "id": 100839360,
+                "lat": 52.5191784,
+                "lon": 13.3762419
+            },
+            {
+                "type": "node",
+                "id": 100840401,
+                "lat": 52.5180044,
+                "lon": 13.375667
+            },
+            {
+                "type": "node",
+                "id": 100840403,
+                "lat": 52.5180306,
+                "lon": 13.3754058
+            },
+            {
+                "type": "node",
+                "id": 100840405,
+                "lat": 52.5181417,
+                "lon": 13.3754059
+            },
+            {
+                "type": "node",
+                "id": 100849637,
+                "lat": 52.5187394,
+                "lon": 13.3753356
+            },
+            {
+                "type": "node",
+                "id": 136691689,
+                "lat": 52.5188276,
+                "lon": 13.3758949
+            },
+            {
+                "type": "node",
+                "id": 136691725,
+                "lat": 52.5188273,
+                "lon": 13.376312
+            },
+            {
+                "type": "node",
+                "id": 136691737,
+                "lat": 52.5189668,
+                "lon": 13.3763123
+            },
+            {
+                "type": "node",
+                "id": 136691741,
+                "lat": 52.5189672,
+                "lon": 13.3758951
+            },
+            {
+                "type": "node",
+                "id": 136691745,
+                "lat": 52.5183607,
+                "lon": 13.3763073
+            },
+            {
+                "type": "node",
+                "id": 136691747,
+                "lat": 52.5182225,
+                "lon": 13.3758915
+            },
+            {
+                "type": "node",
+                "id": 136691752,
+                "lat": 52.5183617,
+                "lon": 13.3758931
+            },
+            {
+                "type": "node",
+                "id": 136691756,
+                "lat": 52.5182215,
+                "lon": 13.3763076
+            },
+            {
+                "type": "node",
+                "id": 437124011,
+                "lat": 52.5184235,
+                "lon": 13.3754632
+            },
+            {
+                "type": "node",
+                "id": 437124012,
+                "lat": 52.5184614,
+                "lon": 13.3767459
+            },
+            {
+                "type": "node",
+                "id": 437124013,
+                "lat": 52.5187221,
+                "lon": 13.3768509
+            },
+            {
+                "type": "node",
+                "id": 437124014,
+                "lat": 52.5187736,
+                "lon": 13.3754694
+            },
+            {
+                "type": "node",
+                "id": 1073123706,
+                "lat": 52.5185909,
+                "lon": 13.3753345
+            },
+            {
+                "type": "node",
+                "id": 1353851809,
+                "lat": 52.5179767,
+                "lon": 13.3767062
+            },
+            {
+                "type": "node",
+                "id": 1353851812,
+                "lat": 52.5191869,
+                "lon": 13.3767605
+            },
+            {
+                "type": "node",
+                "id": 1353851815,
+                "lat": 52.5179808,
+                "lon": 13.3754879
+            },
+            {
+                "type": "node",
+                "id": 1353851817,
+                "lat": 52.5192148,
+                "lon": 13.3754985
+            },
+            {
+                "type": "node",
+                "id": 1353851819,
+                "lat": 52.5191871,
+                "lon": 13.3764953
+            },
+            {
+                "type": "node",
+                "id": 1353851820,
+                "lat": 52.5190545,
+                "lon": 13.3754564
+            },
+            {
+                "type": "node",
+                "id": 1353851828,
+                "lat": 52.5187157,
+                "lon": 13.3768508
+            },
+            {
+                "type": "node",
+                "id": 1353851838,
+                "lat": 52.5191801,
+                "lon": 13.3757228
+            },
+            {
+                "type": "node",
+                "id": 1353851851,
+                "lat": 52.5187671,
+                "lon": 13.3767407
+            },
+            {
+                "type": "node",
+                "id": 1353851856,
+                "lat": 52.5191783,
+                "lon": 13.3764953
+            },
+            {
+                "type": "node",
+                "id": 1353851858,
+                "lat": 52.5180121,
+                "lon": 13.3764827
+            },
+            {
+                "type": "node",
+                "id": 1353851859,
+                "lat": 52.5191891,
+                "lon": 13.3756824
+            },
+            {
+                "type": "node",
+                "id": 1353851865,
+                "lat": 52.5181356,
+                "lon": 13.3767494
+            },
+            {
+                "type": "node",
+                "id": 1353851871,
+                "lat": 52.5184683,
+                "lon": 13.3768492
+            },
+            {
+                "type": "node",
+                "id": 1353851878,
+                "lat": 52.51918,
+                "lon": 13.3759757
+            },
+            {
+                "type": "node",
+                "id": 1353851880,
+                "lat": 52.5184235,
+                "lon": 13.3754336
+            },
+            {
+                "type": "node",
+                "id": 1353851881,
+                "lat": 52.5180141,
+                "lon": 13.3757104
+            },
+            {
+                "type": "node",
+                "id": 1353851882,
+                "lat": 52.5187736,
+                "lon": 13.3754368
+            },
+            {
+                "type": "node",
+                "id": 1353851890,
+                "lat": 52.5180006,
+                "lon": 13.3765234
+            },
+            {
+                "type": "node",
+                "id": 1353851893,
+                "lat": 52.51916,
+                "lon": 13.3767604
+            },
+            {
+                "type": "node",
+                "id": 1353851898,
+                "lat": 52.5179807,
+                "lon": 13.375667
+            },
+            {
+                "type": "node",
+                "id": 1353851899,
+                "lat": 52.5192147,
+                "lon": 13.3756825
+            },
+            {
+                "type": "node",
+                "id": 1353851901,
+                "lat": 52.5191871,
+                "lon": 13.376536
+            },
+            {
+                "type": "node",
+                "id": 1353851903,
+                "lat": 52.5190545,
+                "lon": 13.3754168
+            },
+            {
+                "type": "node",
+                "id": 1353851910,
+                "lat": 52.5180002,
+                "lon": 13.3767482
+            },
+            {
+                "type": "node",
+                "id": 1353851912,
+                "lat": 52.518005,
+                "lon": 13.3754462
+            },
+            {
+                "type": "node",
+                "id": 1353851915,
+                "lat": 52.5180306,
+                "lon": 13.3754462
+            },
+            {
+                "type": "node",
+                "id": 1353851920,
+                "lat": 52.5181416,
+                "lon": 13.3754464
+            },
+            {
+                "type": "node",
+                "id": 1353851923,
+                "lat": 52.5191905,
+                "lon": 13.3754577
+            },
+            {
+                "type": "node",
+                "id": 1353851939,
+                "lat": 52.5187671,
+                "lon": 13.3767494
+            },
+            {
+                "type": "node",
+                "id": 1353851954,
+                "lat": 52.5190488,
+                "lon": 13.3767578
+            },
+            {
+                "type": "node",
+                "id": 1353851957,
+                "lat": 52.5180122,
+                "lon": 13.3762286
+            },
+            {
+                "type": "node",
+                "id": 1353851973,
+                "lat": 52.5180242,
+                "lon": 13.3767867
+            },
+            {
+                "type": "node",
+                "id": 1353851981,
+                "lat": 52.5184169,
+                "lon": 13.3767458
+            },
+            {
+                "type": "node",
+                "id": 1353851987,
+                "lat": 52.5191898,
+                "lon": 13.3759758
+            },
+            {
+                "type": "node",
+                "id": 1353851990,
+                "lat": 52.5180044,
+                "lon": 13.3757104
+            },
+            {
+                "type": "node",
+                "id": 1353851998,
+                "lat": 52.5181614,
+                "lon": 13.3767336
+            },
+            {
+                "type": "node",
+                "id": 1353852003,
+                "lat": 52.5190488,
+                "lon": 13.3767995
+            },
+            {
+                "type": "node",
+                "id": 1353852007,
+                "lat": 52.5181673,
+                "lon": 13.3754629
+            },
+            {
+                "type": "node",
+                "id": 1353852011,
+                "lat": 52.5192111,
+                "lon": 13.376536
+            },
+            {
+                "type": "node",
+                "id": 1353852013,
+                "lat": 52.518002,
+                "lon": 13.375965
+            },
+            {
+                "type": "node",
+                "id": 1353852014,
+                "lat": 52.5191658,
+                "lon": 13.3754577
+            },
+            {
+                "type": "node",
+                "id": 1353852023,
+                "lat": 52.5180002,
+                "lon": 13.3767062
+            },
+            {
+                "type": "node",
+                "id": 1353852027,
+                "lat": 52.5191869,
+                "lon": 13.3767178
+            },
+            {
+                "type": "node",
+                "id": 1353852031,
+                "lat": 52.5191905,
+                "lon": 13.3754984
+            },
+            {
+                "type": "node",
+                "id": 1353852033,
+                "lat": 52.5190291,
+                "lon": 13.3754564
+            },
+            {
+                "type": "node",
+                "id": 1353852041,
+                "lat": 52.5187221,
+                "lon": 13.3767493
+            },
+            {
+                "type": "node",
+                "id": 1353852047,
+                "lat": 52.5190249,
+                "lon": 13.3767577
+            },
+            {
+                "type": "node",
+                "id": 1353852051,
+                "lat": 52.5180018,
+                "lon": 13.3762285
+            },
+            {
+                "type": "node",
+                "id": 1353852054,
+                "lat": 52.5184545,
+                "lon": 13.3753335
+            },
+            {
+                "type": "node",
+                "id": 1353852069,
+                "lat": 52.5184169,
+                "lon": 13.3767339
+            },
+            {
+                "type": "node",
+                "id": 1353852074,
+                "lat": 52.5191896,
+                "lon": 13.3762419
+            },
+            {
+                "type": "node",
+                "id": 1353852076,
+                "lat": 52.5180006,
+                "lon": 13.3764827
+            },
+            {
+                "type": "node",
+                "id": 1353852077,
+                "lat": 52.5190291,
+                "lon": 13.3754698
+            },
+            {
+                "type": "node",
+                "id": 1353852086,
+                "lat": 52.5181614,
+                "lon": 13.3767495
+            },
+            {
+                "type": "node",
+                "id": 1353852090,
+                "lat": 52.518005,
+                "lon": 13.3754879
+            },
+            {
+                "type": "node",
+                "id": 1353852092,
+                "lat": 52.5184682,
+                "lon": 13.3768678
+            },
+            {
+                "type": "node",
+                "id": 1353852095,
+                "lat": 52.5181673,
+                "lon": 13.3754464
+            },
+            {
+                "type": "node",
+                "id": 1353852099,
+                "lat": 52.519211,
+                "lon": 13.3767178
+            },
+            {
+                "type": "node",
+                "id": 1353852103,
+                "lat": 52.518014,
+                "lon": 13.375965
+            },
+            {
+                "type": "node",
+                "id": 1353852104,
+                "lat": 52.5187397,
+                "lon": 13.3754367
+            },
+            {
+                "type": "node",
+                "id": 8393460495,
+                "lat": 52.5185919,
+                "lon": 13.376868
+            },
+            {
+                "type": "node",
+                "id": 8393460496,
+                "lat": 52.5191897,
+                "lon": 13.3761089
+            },
+            {
+                "type": "node",
+                "id": 8393460497,
+                "lat": 52.5180019,
+                "lon": 13.3760968
+            },
+            {
+                "type": "node",
+                "id": 11202574554,
+                "lat": 52.5184717,
+                "lon": 13.3753337
+            },
+            {
+                "type": "node",
+                "id": 11202574555,
+                "lat": 52.5187228,
+                "lon": 13.3753355
+            },
+            {
+                "type": "node",
+                "id": 11202574600,
+                "lat": 52.5187397,
+                "lon": 13.375362
+            },
+            {
+                "type": "node",
+                "id": 11202574624,
+                "lat": 52.5184547,
+                "lon": 13.3753546
+            },
+            {
+                "type": "node",
+                "id": 11202574625,
+                "lat": 52.5181701,
+                "lon": 13.3767336
+            },
+            {
+                "type": "way",
+                "id": 37449515,
+                "nodes": [
+                    136691689,
+                    136691741,
+                    136691737,
+                    136691725,
+                    136691689
+                ]
+            },
+            {
+                "type": "way",
+                "id": 37449516,
+                "nodes": [
+                    136691745,
+                    136691756,
+                    136691747,
+                    136691752,
+                    136691745
+                ]
+            },
+            {
+                "type": "way",
+                "id": 37449517,
+                "nodes": [
+                    437124012,
+                    31237890,
+                    1353851871,
+                    1353852092,
+                    8393460495,
+                    31237858,
+                    1353851828,
+                    437124013,
+                    1353852041,
+                    1353851939,
+                    1353851851,
+                    100839358,
+                    1353852047,
+                    1353851954,
+                    1353852003,
+                    100839359,
+                    1353851893,
+                    1353851812,
+                    1353852027,
+                    1353852099,
+                    1353852011,
+                    1353851901,
+                    1353851819,
+                    1353851856,
+                    100839360,
+                    1353852074,
+                    8393460496,
+                    1353851987,
+                    1353851878,
+                    1353851838,
+                    100836987,
+                    1353851859,
+                    1353851899,
+                    1353851817,
+                    1353852031,
+                    1353851923,
+                    1353852014,
+                    100836988,
+                    1353851903,
+                    1353851820,
+                    1353852033,
+                    1353852077,
+                    437124014,
+                    1353851882,
+                    1353852104,
+                    11202574600,
+                    100849637,
+                    11202574555,
+                    1073123706,
+                    11202574554,
+                    1353852054,
+                    11202574624,
+                    31203140,
+                    1353851880,
+                    437124011,
+                    1353852007,
+                    1353852095,
+                    1353851920,
+                    100840405,
+                    100840403,
+                    1353851915,
+                    1353851912,
+                    1353852090,
+                    1353851815,
+                    1353851898,
+                    100840401,
+                    1353851990,
+                    1353851881,
+                    1353852103,
+                    1353852013,
+                    8393460497,
+                    1353852051,
+                    1353851957,
+                    1353851858,
+                    1353852076,
+                    1353851890,
+                    100837204,
+                    1353851809,
+                    1353852023,
+                    1353851910,
+                    100837203,
+                    1353851973,
+                    100837201,
+                    1353851865,
+                    1353852086,
+                    1353851998,
+                    11202574625,
+                    1353852069,
+                    1353851981,
+                    437124012
+                ]
+            },
+            {
+                "type": "relation",
+                "id": 2201742,
+                "members": [
+                    {
+                        "type": "way",
+                        "ref": 37449517,
+                        "role": "outer"
+                    },
+                    {
+                        "type": "way",
+                        "ref": 37449516,
+                        "role": "inner"
+                    },
+                    {
+                        "type": "way",
+                        "ref": 37449515,
+                        "role": "inner"
+                    }
+                ]
+            }
+        ]
+    },
+    "76137KarlsruheMorgenstra\u00dfe5": {
+        "version": 0.6,
+        "generator": "Overpass API 0.7.62.1 084b4234",
+        "osm3s": {
+            "timestamp_osm_base": "2024-10-26T08:43:00Z",
+            "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+        },
+        "elements": [
+            {
+                "type": "way",
+                "id": 97892155,
+                "nodes": [
+                    1133026383,
+                    1133026015,
+                    1133026344,
+                    4301480944,
+                    4301480945,
+                    4301480939,
+                    4301480938,
+                    1133026215,
+                    1133025932,
+                    1133026383
+                ],
+                "tags": {
+                    "addr:city": "Karlsruhe",
+                    "addr:country": "DE",
+                    "addr:housenumber": "5",
+                    "addr:postcode": "76137",
+                    "addr:street": "Morgenstra\u00dfe",
+                    "building": "apartments",
+                    "building:levels": "4",
+                    "roof:levels": "2",
+                    "roof:shape": "gabled",
+                    "source": "LA-KA"
+                }
+            },
+            {
+                "type": "node",
+                "id": 1133025932,
+                "lat": 49.0024739,
+                "lon": 8.4133456
+            },
+            {
+                "type": "node",
+                "id": 1133026015,
+                "lat": 49.0026068,
+                "lon": 8.4132066
+            },
+            {
+                "type": "node",
+                "id": 1133026215,
+                "lat": 49.0024745,
+                "lon": 8.4133731
+            },
+            {
+                "type": "node",
+                "id": 1133026344,
+                "lat": 49.0026102,
+                "lon": 8.4133644
+            },
+            {
+                "type": "node",
+                "id": 1133026383,
+                "lat": 49.0024711,
+                "lon": 8.4132132
+            },
+            {
+                "type": "node",
+                "id": 4301480938,
+                "lat": 49.0025218,
+                "lon": 8.4133708
+            },
+            {
+                "type": "node",
+                "id": 4301480939,
+                "lat": 49.0025222,
+                "lon": 8.4133907
+            },
+            {
+                "type": "node",
+                "id": 4301480944,
+                "lat": 49.0025592,
+                "lon": 8.4133669
+            },
+            {
+                "type": "node",
+                "id": 4301480945,
+                "lat": 49.0025597,
+                "lon": 8.4133889
+            }
+        ]
+    }
+}
