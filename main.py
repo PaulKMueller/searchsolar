@@ -15,6 +15,8 @@ import plotly.graph_objects as go
 
 import plotly.express as px
 
+st.set_page_config(page_title="SearchSolar")
+
 def compute_outline(latitudes, longitudes):
     """
     Compute the outline (convex hull) of a set of latitude and longitude points.
