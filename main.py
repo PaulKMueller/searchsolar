@@ -61,9 +61,13 @@ timeframe_map = {
 
 # Submit button
 if st.sidebar.button("Submit"):
+    print("Submit button clicked")
     if postal_code and city and street and house_number:
 
         geo_information = find_geo(postal_code, city, street, house_number)
+
+        print("Geo information has been loaded")
+        print(geo_information)
         latitude = geo_information["outline"][0][0]
         longitude = geo_information["outline"][0][1]
 
@@ -151,7 +155,7 @@ if st.sidebar.button("Submit"):
         sunshine_data = fetch_sunshine_data(latitude, longitude, days_back)
 
         # Visualization of sunshine duration over time
-        st.header("Sunshine Hours:")
+        st.subheader("Sunshine Hours:")
 
         # Step 1: Convert the 'date' column to datetime (if not already in datetime)
         sunshine_data['date'] = pd.to_datetime(sunshine_data['date'])
@@ -162,7 +166,7 @@ if st.sidebar.button("Submit"):
         if len(sunshine_data) >= 300:
             sunshine_data = sunshine_data.iloc[::int(len(sunshine_data) / 20)]
         sunshine_data.columns = ['date', 'sunshine_hours']
-        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours", color_discrete_sequence=["#F9D71D"] )
+        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours", color_discrete_sequence=["#F9D71D"])
         st.plotly_chart(plotly_plot)
 
          # Calculate financial KPIs based on roof area and sunlight hours
