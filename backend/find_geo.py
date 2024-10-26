@@ -4,6 +4,9 @@ import json
 
 def find_geo(plz, city, street, house_number) -> dict:
 
+    print("Find geo called")
+
+    data = None
 
     url = f"""https://maps.googleapis.com/maps/api/geocode/json?address={plz}+{city}+{street}+{house_number}&extra_computations=BUILDING_AND_ENTRANCES&key=AIzaSyAJV8oKU2pWmPcebjSiUERaxEOlHeDMzaI"""
 

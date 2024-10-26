@@ -15,6 +15,8 @@ import plotly.graph_objects as go
 
 import plotly.express as px
 
+st.set_page_config(page_title="SearchSolar")
+
 def compute_outline(latitudes, longitudes):
     """
     Compute the outline (convex hull) of a set of latitude and longitude points.
@@ -61,9 +63,13 @@ timeframe_map = {
 
 # Submit button
 if st.sidebar.button("Submit"):
+    print("Submit button clicked")
     if postal_code and city and street and house_number:
 
         geo_information = find_geo(postal_code, city, street, house_number)
+
+        print("Geo information has been loaded")
+        print(geo_information)
         latitude = geo_information["outline"][0][0]
         longitude = geo_information["outline"][0][1]
 
@@ -151,7 +157,7 @@ if st.sidebar.button("Submit"):
         sunshine_data = fetch_sunshine_data(latitude, longitude, days_back)
 
         # Visualization of sunshine duration over time
-        st.header("Sunshine Hours:")
+        st.subheader("Sunshine Hours:")
 
         # Step 1: Convert the 'date' column to datetime (if not already in datetime)
         sunshine_data['date'] = pd.to_datetime(sunshine_data['date'])
@@ -162,7 +168,7 @@ if st.sidebar.button("Submit"):
         if len(sunshine_data) >= 300:
             sunshine_data = sunshine_data.iloc[::int(len(sunshine_data) / 20)]
         sunshine_data.columns = ['date', 'sunshine_hours']
-        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours", color_discrete_sequence=["#F9D71D"] )
+        plotly_plot = px.bar(sunshine_data, x="date", y="sunshine_hours", color_discrete_sequence=["#F9D71D"])
         st.plotly_chart(plotly_plot)
 
          # Calculate financial KPIs based on roof area and sunlight hours
@@ -228,6 +234,36 @@ if st.sidebar.button("Submit"):
 
         # Display the cumulative savings plot
         st.plotly_chart(fig)
+
+        coverage_df = pd.read_csv("city_mapping_final.csv")
+        # Get city name from input and standardize it to lowercase
+        city_input = city.lower()
+        # Try to find the city in the dataframe
+        coverage_row = coverage_df[coverage_df['stadt'].str.lower() == city_input]
+        if not coverage_row.empty:
+            coverage_percentage = coverage_row.iloc[0]['anteil']
+            # Create a gauge chart with plotly
+            fig = go.Figure(go.Indicator(
+                mode = "gauge+number",
+                value = coverage_percentage,
+                domain = {'x': [0, 1], 'y': [0, 1]},
+                title = {'text': "Renewable Energy Coverage"},
+                gauge = {
+                    'axis': {'range': [0, 100]},
+                    'bar': {'color': 'darkblue'},
+                    'steps': [
+                        {'range': [0, 25], 'color': 'red'},
+                        {'range': [25, 50], 'color': 'orange'},
+                        {'range': [50, 75], 'color': 'yellow'},
+                        {'range': [75, 100], 'color': 'green'}
+                    ],
+                }
+            ))
+            st.header("Renewables Coverage Score")
+            st.plotly_chart(fig)
+        else:
+            st.header("Renewables Coverage Score")
+            st.write("Data not available for your city.")
     else:
         st.warning("Please enter a complete address before submitting.")
 else:
