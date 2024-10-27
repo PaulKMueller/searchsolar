@@ -15,7 +15,7 @@ import plotly.graph_objects as go
 
 import plotly.express as px
 
-st.set_page_config(page_title="SearchSolar")
+st.set_page_config(page_title="SearchSolar", page_icon=":sunny:")
 
 def compute_outline(latitudes, longitudes):
     """
