@@ -40,7 +40,7 @@ def compute_outline(latitudes, longitudes):
     return outline
 
 
-st.image("SearchSolar.png", use_column_width=True)
+st.image(".github/assets/SearchSolar.png", use_column_width=True)
 
 st.sidebar.title("Address Input")
 postal_code = st.sidebar.text_input("Postal Code", value="50670")

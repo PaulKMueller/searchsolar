@@ -1,4 +1,6 @@
-# sus_hackathon
+# SearchSolar
+
+![SearchSolar logo](.github/assets/SearchSolar.png)
 
 ## How to run
 
